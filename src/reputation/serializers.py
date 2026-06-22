@@ -26,6 +26,11 @@ class TransferSerializer(serializers.Serializer):
         to_user = attrs["to_user"]
         if from_user == to_user:
             raise serializers.ValidationError(
-                "You cannot transfer money between you and me"
+                "You cannot transfer reputation to yourself"
+            )
+        user = self.context["request"].user
+        if user.id != from_user:
+            raise serializers.ValidationError(
+                "You can only transfer reputation from your own profile"
             )
         return attrs
