@@ -25,6 +25,7 @@ class TransferSerializer(serializers.Serializer):
         from_user = attrs["from_user"]
         to_user = attrs["to_user"]
         user = self.context["request"].user
+        profile = Profile.objects.get(user=user)
         if user.id != from_user:
             raise serializers.ValidationError(
                 "You can only transfer reputation from your own profile"
@@ -33,4 +34,6 @@ class TransferSerializer(serializers.Serializer):
             raise serializers.ValidationError(
                 "You cannot transfer reputation to yourself"
             )
+        if profile.reputation_balance < attrs["reputation"]:
+            raise serializers.ValidationError("Insufficient reputation")
         return attrs
