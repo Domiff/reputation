@@ -14,9 +14,19 @@ class ReputationService:
         )
 
     def get_response_data(self) -> dict:
+        from_user = self.repo.get_user(
+            self.serializer.validated_data["from_user"]
+        ).username
+        to_user = self.repo.get_user(self.serializer.validated_data["to_user"]).username
+        reputation = self.serializer.validated_data["reputation"]
         data = {
-            "from_user": self.repo.get_user(self.serializer.validated_data["from_user"]).username,
-            "to_user": self.repo.get_user(self.serializer.validated_data["to_user"]).username,
-            "reputation": self.serializer.validated_data["reputation"],
+            "from_user": from_user,
+            "to_user": to_user,
+            "reputation": reputation,
         }
+        self.repo.record_transfer_reputation(
+            from_user,
+            to_user,
+            reputation,
+        )
         return data

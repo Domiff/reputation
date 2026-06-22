@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db.transaction import atomic
 
-from reputation.models import Profile
+from reputation.models import Profile, LogsTransfers
 
 
 class Repository:
@@ -26,4 +26,10 @@ class Repository:
         )
         self.get_profile(to_user).update(
             reputation_balance=to_user_balance[0] + reputation
+        )
+
+    @staticmethod
+    def record_transfer_reputation(from_user: str, to_user: str, reputation: int):
+        LogsTransfers.objects.create(
+            from_user=from_user, to_user=to_user, reputation=reputation
         )

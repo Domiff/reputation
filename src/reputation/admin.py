@@ -1,11 +1,12 @@
 from django.contrib import admin
 
-from reputation.models import Profile
+from reputation.models import Profile, LogsTransfers
 
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
     list_display = [
+        "id",
         "first_name",
         "last_name",
         "reputation_balance",
@@ -18,3 +19,14 @@ class ProfileAdmin(admin.ModelAdmin):
         "last_name",
     ]
     list_editable = ["reputation_balance"]
+
+
+@admin.register(LogsTransfers)
+class LogsTransfersAdmin(admin.ModelAdmin):
+    list_display = [
+        "id",
+        "from_user",
+        "to_user",
+        "reputation",
+        "created_at",
+    ]
