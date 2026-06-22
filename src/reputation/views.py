@@ -4,7 +4,6 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 
 from reputation.models import Profile
-from reputation.repository import Repository
 from reputation.serializers import ProfileSerializer, TransferSerializer
 from reputation.service import ReputationService
 
