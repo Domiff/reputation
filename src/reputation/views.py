@@ -19,6 +19,13 @@ class DetailProfileAPIView(RetrieveAPIView):
     lookup_field = "id"
 
 
+class CurrentProfileAPIView(ListAPIView):
+    serializer_class = ProfileSerializer
+
+    def get_queryset(self):
+        return Profile.objects.filter(id=self.request.user.pk)
+
+
 class TransferReputationAPIView(UpdateAPIView):
     queryset = Profile.objects.all()
     serializer_class = TransferSerializer
