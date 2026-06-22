@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from reputation.models import Profile, LogsTransfers
+from reputation.models import LogsTransfers, Profile
 
 
 @admin.register(Profile)

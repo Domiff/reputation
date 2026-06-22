@@ -6,10 +6,10 @@ from rest_framework_simplejwt.views import (
 )
 
 from reputation.views import (
-    ListProfileAPIView,
-    DetailProfileAPIView,
-    TransferReputationAPIView,
     CurrentProfileAPIView,
+    DetailProfileAPIView,
+    ListProfileAPIView,
+    TransferReputationAPIView,
 )
 
 app_name = "reputation"

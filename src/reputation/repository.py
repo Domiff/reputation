@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django.db.transaction import atomic
 
-from reputation.models import Profile, LogsTransfers
+from reputation.models import LogsTransfers, Profile
 
 
 class Repository:
