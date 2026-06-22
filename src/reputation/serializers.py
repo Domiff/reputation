@@ -24,13 +24,13 @@ class TransferSerializer(serializers.Serializer):
     def validate(self, attrs):
         from_user = attrs["from_user"]
         to_user = attrs["to_user"]
-        if from_user == to_user:
-            raise serializers.ValidationError(
-                "You cannot transfer reputation to yourself"
-            )
         user = self.context["request"].user
         if user.id != from_user:
             raise serializers.ValidationError(
                 "You can only transfer reputation from your own profile"
+            )
+        if from_user == to_user:
+            raise serializers.ValidationError(
+                "You cannot transfer reputation to yourself"
             )
         return attrs
