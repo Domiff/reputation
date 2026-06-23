@@ -31,13 +31,15 @@ docker compose up --build
 
 ### 3. Эндпоинты
 
-/api/token - Для получения access токена
+/api/token/ - Для получения access токена
 
 /api/profiles/ - Просмотр всех профилей
 
-/api/profiles/{id} - Просмотр конкретного профиля
+/api/profiles/{id}/ - Просмотр конкретного профиля
 
-/api/profiles/current - Просмотр текущего профиля
+/api/profiles/current/ - Просмотр текущего профиля
+
+/api/transfer/ - Передача баланса
 
 ### 4. Тестовые учетные данные
 
