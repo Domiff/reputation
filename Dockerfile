@@ -9,7 +9,7 @@ ENV UV_PROJECT_ENVIRONMENT=/usr/local
 
 ENV UV_SYSTEM_PYTHON=1
 
-RUN uv sync
+RUN uv sync --no-dev
 
 
 FROM python:3.14-slim
