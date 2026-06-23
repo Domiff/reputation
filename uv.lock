@@ -241,6 +241,7 @@ dependencies = [
     { name = "django" },
     { name = "djangorestframework" },
     { name = "djangorestframework-simplejwt" },
+    { name = "drf-spectacular" },
     { name = "gunicorn" },
     { name = "python-dotenv" },
 ]
@@ -249,7 +250,6 @@ dependencies = [
 dev = [
     { name = "django-stubs" },
     { name = "djangorestframework-stubs" },
-    { name = "drf-spectacular" },
     { name = "ruff" },
 ]
 
@@ -258,6 +258,7 @@ requires-dist = [
     { name = "django", specifier = ">=6.0.6" },
     { name = "djangorestframework", specifier = ">=3.17.1" },
     { name = "djangorestframework-simplejwt", specifier = ">=5.5.1" },
+    { name = "drf-spectacular", specifier = ">=0.29.0" },
     { name = "gunicorn", specifier = ">=26.0.0" },
     { name = "python-dotenv", specifier = ">=1.2.2" },
 ]
@@ -266,7 +267,6 @@ requires-dist = [
 dev = [
     { name = "django-stubs", specifier = ">=6.0.5" },
     { name = "djangorestframework-stubs", specifier = ">=3.17.0" },
-    { name = "drf-spectacular", specifier = ">=0.29.0" },
     { name = "ruff", specifier = ">=0.15.18" },
 ]
 
